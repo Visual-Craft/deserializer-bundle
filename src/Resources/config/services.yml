@@ -1,0 +1,6 @@
+services:
+    VisualCraft\ApiDeserializerBundle\ApiDeserializerBuilderFactory:
+        class: VisualCraft\ApiDeserializerBundle\ApiDeserializerBuilderFactory
+        arguments:
+            - "@serializer"
+            - "@validator"
