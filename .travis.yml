@@ -1,0 +1,14 @@
+language: php
+php: '7.1'
+
+cache:
+  directories:
+    - $HOME/.cache/composer
+
+jobs:
+  include:
+    - stage: codestyle-check
+      before_script:
+        - composer global require friendsofphp/php-cs-fixer
+      script:
+        - $HOME/.composer/vendor/bin/php-cs-fixer --diff --dry-run --verbose fix ./src

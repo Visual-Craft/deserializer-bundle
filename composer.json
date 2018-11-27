@@ -1,8 +1,8 @@
 {
-    "name": "visual-craft/api-deserializer",
+    "name": "visual-craft/api-deserializer-bundle",
     "license": "MIT",
-    "type": "library",
-    "description": "Api Deserializer",
+    "type": "symfony-bundle",
+    "description": "Symfony Bundle for simplifying deserialization of API (or other) data",
     "authors": [
         {
             "name": "VisualCraft Team"
