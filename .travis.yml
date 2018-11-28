@@ -11,7 +11,7 @@ jobs:
       before_script:
         - composer global require friendsofphp/php-cs-fixer
       script:
-        - $HOME/.composer/vendor/bin/php-cs-fixer --diff --dry-run --verbose fix ./src
+        - $HOME/.config/composer/vendor/bin/php-cs-fixer --diff --dry-run --verbose fix ./src
 
     - stage: tests
       before_script:
