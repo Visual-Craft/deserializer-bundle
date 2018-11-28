@@ -18,3 +18,5 @@ jobs:
         - composer install --no-interaction
       script:
         - vendor/bin/phpunit --coverage-text --colors=never
+      after_success:
+        - bash <(curl -s https://codecov.io/bash)
