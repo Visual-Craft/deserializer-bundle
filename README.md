@@ -1,5 +1,6 @@
 Api Deserializer
 ================
+[![Build Status](https://travis-ci.org/Visual-Craft/api-deserializer-bundle.svg?branch=master)](https://travis-ci.org/Visual-Craft/api-deserializer-bundle)
 
 Bundle for deserialization of API Responses or any other json data
 
