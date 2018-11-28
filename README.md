@@ -1,5 +1,5 @@
-Api Deserializer
-================
+VisualCraft Deserializer
+========================
 [![Build Status](https://travis-ci.org/Visual-Craft/deserializer-bundle.svg?branch=master)](https://travis-ci.org/Visual-Craft/deserializer-bundle)
 [![Build Status](https://codecov.io/gh/Visual-Craft/deserializer-bundle/branch/master/graph/badge.svg)](https://codecov.io/gh/Visual-Craft/deserializer-bundle/branch/master/graph/badge.svg)
 

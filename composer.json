@@ -1,5 +1,5 @@
 {
-    "name": "visual-craft/api-deserializer-bundle",
+    "name": "visual-craft/deserializer-bundle",
     "license": "MIT",
     "type": "symfony-bundle",
     "description": "Symfony Bundle for simplifying deserialization of API (or other) data",
