@@ -100,7 +100,7 @@ $this->deserializerBuilderFactory
     // or:
     ->setValidationGroups(function($object) {
         // if (something)
-        return 'validation_group';
+        return ['validation_group'];
         // endif
     })
     ->setDeserializationGroups(['deserialization_group'])
