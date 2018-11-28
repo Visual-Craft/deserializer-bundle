@@ -37,15 +37,39 @@ return [
 Usage
 -----
 
-1) Basic usage
+Firstly, inject DeserializerBuilderFactory to your Controller (or service):
 ```php
 <?php
+
+use VisualCraft\DeserializerBundle\DeserializerBuilderFactory;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+
+class SomeController extends Controller
+{
+    // ...
+    public function __construct(DeserializerBuilderFactory $deserializerBuilderFactory)
+    {
+        $this->deserializerBuilderFactory = $deserializerBuilderFactory;
+    }
+// ...
+```
+
+Or using Service Locator:
+```php
+<?php
+
 use VisualCraft\DeserializerBundle\DeserializerBuilderFactory;
 
 // ...
 
-$this
-    ->get(DeserializerBuilderFactory::class)
+$deserializerBuilderFactory = $this->get(DeserializerBuilderFactory::class);
+```
+
+1) Basic usage
+```php
+<?php
+
+$this->deserializerBuilderFactory
     ->create(SomeDataClass::class)
     ->getDeserializer()
     ->deserialize($request->getContent())
@@ -55,14 +79,10 @@ $this
 2) Configuring object to populate
 ```php
 <?php
-use VisualCraft\DeserializerBundle\DeserializerBuilderFactory;
-
-// ...
 
 // Retrieve from storage
 $objectToPopulate = $repository->find(1);
-$this
-    ->get(DeserializerBuilderFactory::class)
+$this->deserializerBuilderFactory
     ->create(SomeDataClass::class)
     ->setObjectToPopulate($objectToPopulate)
     ->getDeserializer()
@@ -73,12 +93,8 @@ $this
 3) Other features example:
 ```php
 <?php
-use VisualCraft\DeserializerBundle\DeserializerBuilderFactory;
 
-// ...
-
-$this
-    ->get(DeserializerBuilderFactory::class)
+$this->deserializerBuilderFactory
     ->create(SomeDataClass::class)
     ->setValidationGroups(['validation_group'])
     // or:
