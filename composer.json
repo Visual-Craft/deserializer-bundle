@@ -5,7 +5,7 @@
     "description": "Symfony Bundle for simplifying deserialization of API (or other) data",
     "authors": [
         {
-            "name": "VisualCraft Team"
+            "name": "Visual Craft"
         }
     ],
     "autoload": {
