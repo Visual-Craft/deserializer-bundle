@@ -42,8 +42,9 @@ Firstly, inject DeserializerBuilderFactory to your Controller (or service):
 <?php
 
 use VisualCraft\DeserializerBundle\DeserializerBuilderFactory;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class SomeController
+class SomeController extends Controller
 {
     // ...
     public function __construct(DeserializerBuilderFactory $deserializerBuilderFactory)
