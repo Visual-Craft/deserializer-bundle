@@ -108,3 +108,8 @@ $this->deserializerBuilderFactory
     ->deserialize($request->getContent())
 ;
 ```
+
+License
+-------
+MIT
+
