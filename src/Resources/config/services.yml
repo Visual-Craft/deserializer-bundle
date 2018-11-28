@@ -1,5 +1,6 @@
 services:
     VisualCraft\ApiDeserializerBundle\ApiDeserializerBuilderFactory:
+        public: true
         class: VisualCraft\ApiDeserializerBundle\ApiDeserializerBuilderFactory
         arguments:
             - "@serializer"
