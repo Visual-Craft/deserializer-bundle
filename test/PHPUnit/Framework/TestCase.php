@@ -1,6 +1,6 @@
 <?php
 
-namespace VisualCraft\ApiDeserializerBundle\Test\PHPUnit\Framework;
+namespace VisualCraft\DeserializerBundle\Test\PHPUnit\Framework;
 
 use PHPUnit\Framework\TestCase as FrameworkTestCase;
 

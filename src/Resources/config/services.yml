@@ -1,7 +1,6 @@
 services:
-    VisualCraft\ApiDeserializerBundle\ApiDeserializerBuilderFactory:
-        public: true
-        class: VisualCraft\ApiDeserializerBundle\ApiDeserializerBuilderFactory
+    VisualCraft\DeserializerBundle\DeserializerBuilderFactory:
+        class: VisualCraft\DeserializerBundle\DeserializerBuilderFactory
         arguments:
             - "@serializer"
             - "@validator"

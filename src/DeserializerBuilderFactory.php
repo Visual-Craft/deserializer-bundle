@@ -1,11 +1,11 @@
 <?php
 
-namespace VisualCraft\ApiDeserializerBundle;
+namespace VisualCraft\DeserializerBundle;
 
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
-class ApiDeserializerBuilderFactory
+class DeserializerBuilderFactory
 {
     /**
      * @var ValidatorInterface
@@ -29,10 +29,10 @@ class ApiDeserializerBuilderFactory
 
     /**
      * @param string $class
-     * @return ApiDeserializerBuilder
+     * @return DeserializerBuilder
      */
-    public function getInstance(string $class): ApiDeserializerBuilder
+    public function create(string $class): DeserializerBuilder
     {
-        return new ApiDeserializerBuilder($class, $this->serializer, $this->validator);
+        return new DeserializerBuilder($class, $this->serializer, $this->validator);
     }
 }

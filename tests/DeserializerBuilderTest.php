@@ -1,21 +1,21 @@
 <?php
 
-namespace VisualCraft\ApiDeserializerBundle\Tests;
+namespace VisualCraft\DeserializerBundle\Tests;
 
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
-use VisualCraft\ApiDeserializerBundle\ApiDeserializer;
-use VisualCraft\ApiDeserializerBundle\ApiDeserializerBuilder;
-use VisualCraft\ApiDeserializerBundle\Test\PHPUnit\Framework\TestCase;
+use VisualCraft\DeserializerBundle\Deserializer;
+use VisualCraft\DeserializerBundle\DeserializerBuilder;
+use VisualCraft\DeserializerBundle\Test\PHPUnit\Framework\TestCase;
 
-class ApiDeserializerBuilderTest extends TestCase
+class DeserializerBuilderTest extends TestCase
 {
     public function testGetDeserializer(): void
     {
         $deserializerBuilder = $this->getDeserializerBuilder();
         $deserializer = $deserializerBuilder->getDeserializer();
 
-        static::assertInstanceOf(ApiDeserializer::class, $deserializer);
+        static::assertInstanceOf(Deserializer::class, $deserializer);
     }
 
     /**
@@ -117,13 +117,13 @@ class ApiDeserializerBuilderTest extends TestCase
     }
 
     /**
-     * @return ApiDeserializerBuilder
+     * @return DeserializerBuilder
      */
-    private function getDeserializerBuilder(): ApiDeserializerBuilder
+    private function getDeserializerBuilder(): DeserializerBuilder
     {
         $serializer = $this->createMock(SerializerInterface::class);
         $validator = $this->createMock(ValidatorInterface::class);
 
-        return new ApiDeserializerBuilder(\stdClass::class, $serializer, $validator);
+        return new DeserializerBuilder(\stdClass::class, $serializer, $validator);
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace VisualCraft\ApiDeserializerBundle\Tests;
+namespace VisualCraft\DeserializerBundle\Tests;
 
 class DummyDataClass
 {

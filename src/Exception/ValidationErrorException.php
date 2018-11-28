@@ -1,6 +1,6 @@
 <?php
 
-namespace VisualCraft\ApiDeserializerBundle\Exception;
+namespace VisualCraft\DeserializerBundle\Exception;
 
 use Symfony\Component\Validator\ConstraintViolationListInterface;
 

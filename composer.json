@@ -9,12 +9,12 @@
         }
     ],
     "autoload": {
-        "psr-4": { "VisualCraft\\ApiDeserializerBundle\\": "src/" }
+        "psr-4": { "VisualCraft\\DeserializerBundle\\": "src/" }
     },
     "autoload-dev": {
         "psr-4": {
-            "VisualCraft\\ApiDeserializerBundle\\Tests\\": "tests/",
-            "VisualCraft\\ApiDeserializerBundle\\Test\\": "test/"
+            "VisualCraft\\DeserializerBundle\\Tests\\": "tests/",
+            "VisualCraft\\DeserializerBundle\\Test\\": "test/"
         }
     },
     "require": {
