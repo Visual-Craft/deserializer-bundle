@@ -1,6 +1,6 @@
 <?php
 
-namespace VisualCraft\ApiDeserializerBundle\Exception;
+namespace VisualCraft\DeserializerBundle\Exception;
 
 class InvalidRequestBodyFormatException extends \RuntimeException
 {

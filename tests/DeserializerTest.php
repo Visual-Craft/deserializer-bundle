@@ -1,6 +1,6 @@
 <?php
 
-namespace VisualCraft\ApiDeserializerBundle\Tests;
+namespace VisualCraft\DeserializerBundle\Tests;
 
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
@@ -11,20 +11,20 @@ use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\ConstraintViolation;
 use Symfony\Component\Validator\ConstraintViolationList;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
-use VisualCraft\ApiDeserializerBundle\ApiDeserializer;
-use VisualCraft\ApiDeserializerBundle\Exception\InvalidRequestBodyFormatException;
-use VisualCraft\ApiDeserializerBundle\Exception\ValidationErrorException;
+use VisualCraft\DeserializerBundle\Deserializer;
+use VisualCraft\DeserializerBundle\Exception\InvalidRequestBodyFormatException;
+use VisualCraft\DeserializerBundle\Exception\ValidationErrorException;
 
-class ApiDeserializerTest extends TestCase
+class DeserializerTest extends TestCase
 {
     public function testDeserialize(): void
     {
         $validator = $this->getAlwaysValidValidator();
         $serializer = new Serializer([new ObjectNormalizer()], [new JsonEncoder()]);
 
-        $apiDeserializer = new ApiDeserializer(DummyDataClass::class, $validator, $serializer, [], []);
+        $deserializer = new Deserializer(DummyDataClass::class, $validator, $serializer, [], []);
         /** @var DummyDataClass $deserialized */
-        $deserialized = $apiDeserializer->deserialize(json_encode([
+        $deserialized = $deserializer->deserialize(json_encode([
             'key' => 'value',
         ]));
 
@@ -41,10 +41,10 @@ class ApiDeserializerTest extends TestCase
             ->method('deserialize')
             ->willThrowException(new UnexpectedValueException())
         ;
-        $apiDeserializer = new ApiDeserializer(\stdClass::class, $validator, $serializer, [], []);
+        $deserializer = new Deserializer(\stdClass::class, $validator, $serializer, [], []);
 
         $this->expectException(InvalidRequestBodyFormatException::class);
-        $apiDeserializer->deserialize(json_encode([
+        $deserializer->deserialize(json_encode([
             'key' => 'value',
         ]));
     }
@@ -58,8 +58,8 @@ class ApiDeserializerTest extends TestCase
         ;
         $serializer = $this->createMock(SerializerInterface::class);
         $this->expectException(ValidationErrorException::class);
-        $apiDeserializer = new ApiDeserializer(\stdClass::class, $validator, $serializer, [], []);
-        $apiDeserializer->deserialize(json_encode([
+        $deserializer = new Deserializer(\stdClass::class, $validator, $serializer, [], []);
+        $deserializer->deserialize(json_encode([
             'key' => 'value',
         ]));
     }

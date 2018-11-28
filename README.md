@@ -1,7 +1,7 @@
-Api Deserializer
-================
-[![Build Status](https://travis-ci.org/Visual-Craft/api-deserializer-bundle.svg?branch=master)](https://travis-ci.org/Visual-Craft/api-deserializer-bundle)
-[![Build Status](https://codecov.io/gh/Visual-Craft/api-deserializer-bundle/branch/master/graph/badge.svg)](https://codecov.io/gh/Visual-Craft/api-deserializer-bundle/branch/master/graph/badge.svg)
+VisualCraft Deserializer
+========================
+[![Build Status](https://travis-ci.org/Visual-Craft/deserializer-bundle.svg?branch=master)](https://travis-ci.org/Visual-Craft/deserializer-bundle)
+[![Build Status](https://codecov.io/gh/Visual-Craft/deserializer-bundle/branch/master/graph/badge.svg)](https://codecov.io/gh/Visual-Craft/deserializer-bundle/branch/master/graph/badge.svg)
 
 Bundle for deserialization of API Responses or any other json data
 
@@ -9,7 +9,7 @@ Installation
 ------------
 1)
 ```bash
-$ composer require visual-craft/api-deserializer
+$ composer require visual-craft/deserializer-bundle
 
 ```
 2) Enable in kernel (Symfony 3.4)
@@ -20,7 +20,7 @@ public function registerBundles()
 {
     $bundles = [
         // ...
-        new VisualCraft\ApiDeserializerBundle\VisualCraftApiDeserializerBundle(),
+        new VisualCraft\DeserializerBundle\VisualCraftDeserializerBundle(),
         // ...
     ];
 ```
@@ -29,7 +29,7 @@ Or add to bundles.php (Symfony 4.0+)
 <?php
 
 return [
-    VisualCraft\ApiDeserializerBundle\VisualCraftApiDeserializerBundle::class => ['all' => true],
+    VisualCraft\DeserializerBundle\VisualCraftDeserializerBundle::class => ['all' => true],
 ];
 
 ```
@@ -40,13 +40,13 @@ Usage
 1) Basic usage
 ```php
 <?php
-use VisualCraft\ApiDeserializerBundle\ApiDeserializerBuilder;
+use VisualCraft\DeserializerBundle\DeserializerBuilderFactory;
 
 // ...
 
 $this
-    ->get(ApiDeserializerBuilder::class)
-    ->getInstance(SomeDataClass::class)
+    ->get(DeserializerBuilderFactory::class)
+    ->create(SomeDataClass::class)
     ->getDeserializer()
     ->deserialize($request->getContent())
 ;
@@ -55,15 +55,15 @@ $this
 2) Configuring object to populate
 ```php
 <?php
-use VisualCraft\ApiDeserializerBundle\ApiDeserializerBuilder;
+use VisualCraft\DeserializerBundle\DeserializerBuilderFactory;
 
 // ...
 
 // Retrieve from storage
 $objectToPopulate = $repository->find(1);
 $this
-    ->get(ApiDeserializerBuilder::class)
-    ->getInstance(SomeDataClass::class)
+    ->get(DeserializerBuilderFactory::class)
+    ->create(SomeDataClass::class)
     ->setObjectToPopulate($objectToPopulate)
     ->getDeserializer()
     ->deserialize($request->getContent())
@@ -73,13 +73,13 @@ $this
 3) Other features example:
 ```php
 <?php
-use VisualCraft\ApiDeserializerBundle\ApiDeserializerBuilder;
+use VisualCraft\DeserializerBundle\DeserializerBuilderFactory;
 
 // ...
 
 $this
-    ->get(ApiDeserializerBuilder::class)
-    ->getInstance(SomeDataClass::class)
+    ->get(DeserializerBuilderFactory::class)
+    ->create(SomeDataClass::class)
     ->setValidationGroups(['validation_group'])
     // or:
     ->setValidationGroups(function($object) {

@@ -1,14 +1,14 @@
 <?php
 
-namespace VisualCraft\ApiDeserializerBundle;
+namespace VisualCraft\DeserializerBundle;
 
 use Symfony\Component\Serializer\Exception\UnexpectedValueException;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
-use VisualCraft\ApiDeserializerBundle\Exception\InvalidRequestBodyFormatException;
-use VisualCraft\ApiDeserializerBundle\Exception\ValidationErrorException;
+use VisualCraft\DeserializerBundle\Exception\InvalidRequestBodyFormatException;
+use VisualCraft\DeserializerBundle\Exception\ValidationErrorException;
 
-class ApiDeserializer
+class Deserializer
 {
     /**
      * @var string

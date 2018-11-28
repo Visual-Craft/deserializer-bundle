@@ -1,5 +1,5 @@
 {
-    "name": "visual-craft/api-deserializer-bundle",
+    "name": "visual-craft/deserializer-bundle",
     "license": "MIT",
     "type": "symfony-bundle",
     "description": "Symfony Bundle for simplifying deserialization of API (or other) data",
@@ -9,12 +9,12 @@
         }
     ],
     "autoload": {
-        "psr-4": { "VisualCraft\\ApiDeserializerBundle\\": "src/" }
+        "psr-4": { "VisualCraft\\DeserializerBundle\\": "src/" }
     },
     "autoload-dev": {
         "psr-4": {
-            "VisualCraft\\ApiDeserializerBundle\\Tests\\": "tests/",
-            "VisualCraft\\ApiDeserializerBundle\\Test\\": "test/"
+            "VisualCraft\\DeserializerBundle\\Tests\\": "tests/",
+            "VisualCraft\\DeserializerBundle\\Test\\": "test/"
         }
     },
     "require": {
