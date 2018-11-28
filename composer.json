@@ -11,6 +11,12 @@
     "autoload": {
         "psr-4": { "VisualCraft\\ApiDeserializerBundle\\": "src/" }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "VisualCraft\\ApiDeserializerBundle\\Tests\\": "tests/",
+            "VisualCraft\\ApiDeserializerBundle\\Test\\": "test/"
+        }
+    },
     "require": {
         "php": "^7.1",
         "ext-json": "*",

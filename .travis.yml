@@ -12,3 +12,9 @@ jobs:
         - composer global require friendsofphp/php-cs-fixer
       script:
         - $HOME/.composer/vendor/bin/php-cs-fixer --diff --dry-run --verbose fix ./src
+
+    - stage: tests
+      before_script:
+        - composer install --no-interaction
+      script:
+        - vendor/bin/phpunit --coverage-text --colors=never
